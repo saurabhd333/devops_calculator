@@ -17,8 +17,6 @@ public class CalculatorApplication {
 		
 		System.out.println("SUBSTRACTION of 50 , 10 is ---" +cal.subtract(50,10));
 		
-		System.out.println("Changes added....");
-		
 	}
 
 }
