@@ -2,19 +2,26 @@ pipeline {
     agent any
 
     stages {
+        
+        stage('Clone repository') {
+            steps{
+        git branch: "master", url: "https://github.com/saurabhd333/devops_calculator.git/", credentialsId: "jenkins-github"
+        }
+        }
+        
         stage('Build') {
             steps {
-                 withMaven(maven : 'maven_3_6_3') {
-                 sh 'mvn -DskipTests clean build'
-                }
+
+                 sh 'mvn clean install'
+                
             }
         }
         
         stage('Test') {
             steps {
-                withMaven(maven : 'maven_3_6_3') {
+
                  sh 'mvn test'
-                }
+                
             }
         }
     }
